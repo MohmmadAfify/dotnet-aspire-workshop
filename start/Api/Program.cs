@@ -4,6 +4,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
+builder.AddServiceDefaults();
+
 builder.Services.AddNwsManager();
 
 var app = builder.Build();
@@ -18,5 +20,7 @@ app.UseHttpsRedirection();
 
 // Map the endpoints for the API
 app.MapApiEndpoints();
+
+app.MapDefaultEndpoints();
 
 app.Run();
